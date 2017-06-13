@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+ <form-beans>
+    	<form-bean name="DashDataForm" type="com.accenture.DashboardDataForm"/>
+    	<form-bean name="EmpForm" type="com.accenture.EmployeeForm"/>
+    </form-beans>
+    
+
+    <action-mappings>
+        <action path="/Dashboard" type="com.accenture.Controller" name="DashDataForm"  >
+        	<forward name="success" path="/dashboard.jsp" />
+        	<forward name="failed" path="/index.jsp" />
+        </action>
+       
+        
+       <action path="/info" type="com.accenture.Controller" name="EmpForm">
+        	<forward name="success" path="/info.jsp" />
+        	<forward name="successEditProfile" path="/profile.jsp" />
+        	<forward name="failed" path="/index.jsp" />
+        </action>
+        
+        <action path="/save" type="com.accenture.Controller" >
+        	<forward name="success" path="/addUser.jsp" />
+        	<forward name="failed" path="/index.jsp" />
+        </action>
+        
+        <action path="/profile" type="com.accenture.Controller" name="EmpForm">
+        	<forward name="successProfile" path="/profile.jsp" />
+        	<forward name="successEmpUnderList" path="/empUnderList.jsp" />
+        	<forward name="failed" path="/index.jsp" />
+        </action>
+        
+        <action path="/addUser" type="com.accenture.Controller" >
+        	<forward name="success" path="/addUser.jsp" />
+        	<forward name="failed" path="/index.jsp" />
+        </action>
+        
+          <action path="/updatedProfile" type="com.accenture.Controller" name="EmpForm">
+        	<forward name="success" path="/info.jsp" />
+        	<forward name="failed" path="/index.jsp" />
+        </action>
+        
+    </action-mappings>
+
+</struts-config>
